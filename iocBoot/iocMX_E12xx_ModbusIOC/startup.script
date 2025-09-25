@@ -103,112 +103,112 @@ epicsEnvSet("SYSNAME","TEST")
 #######################################################################
 
 # MOXA E1242 DOs: function 5 (Write Single Coil), base_address 0x0, length 0x4, data_type = UINT16 = 0, # pollMsec = for write func (4,..) any non-zero val to read first
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_DO", "$(E1242_ASYNPORT)", 0, 5, 0x0,   0x4, 0,   1, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_DO", "$(E1242_ASYNPORT)", 0, 5, 0x0,   0x4, "UINT16",   1, "ioLogik")
 
 # MOXA E1242 DOs: function 1 (Read Coils), address 0x0, length 0x4, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_DO_RBV", "$(E1242_ASYNPORT)", 0, 1, 0x0,   0x4, 0, 100, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_DO_RBV", "$(E1242_ASYNPORT)", 0, 1, 0x0,   0x4, "UINT16", 100, "ioLogik")
 
 # MOXA E1242 DIs: function 2 (Read Discrete Inputs), address 0x0, length 0x8, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_DI", "$(E1242_ASYNPORT)", 0, 2, 0x0,   0x8, 0, 100, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_DI", "$(E1242_ASYNPORT)", 0, 2, 0x0,   0x8, "UINT16", 100, "ioLogik")
 
 # MOXA E1242 AIs: function 4 (Read Input Registers), address 0x200, 0x4 words , data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_AI", "$(E1242_ASYNPORT)", 0, 4, 0x200, 0x4, 0, 100, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_AI", "$(E1242_ASYNPORT)", 0, 4, 0x200, 0x4, "UINT16", 100, "ioLogik")
 
 # MOXA E1242 Current mode status: function 4, address 0x240, 0x4 words , data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_AI_St", "$(E1242_ASYNPORT)", 0, 4, 0x0240, 0x4, 0, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_AI_St", "$(E1242_ASYNPORT)", 0, 4, 0x0240, 0x4, "UINT16", 500, "ioLogik")
 
 # MOXA E1242 Current mode settings read: function 3, address 0x220, 0x4 words , data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_AIMR", "$(E1242_ASYNPORT)", 0, 3, 0x0220, 0x4, 0, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_AIMR", "$(E1242_ASYNPORT)", 0, 3, 0x0220, 0x4, "UINT16", 500, "ioLogik")
 
 # MOXA E1242 Current mode settings write: function 6, address 0x220, 0x4 double words => 0x8, data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_AIMW", "$(E1242_ASYNPORT)", 0, 6, 0x0220, 0x4, 0, 1, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_AIMW", "$(E1242_ASYNPORT)", 0, 6, 0x0220, 0x4, "UINT16", 1, "ioLogik")
 
 # MOXA E1242 Burn out value read (float - two words): function 3, address 0x230, 0x4 double words => 0x8, data_type = FLOAT32_LE = 7, 
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_BOR", "$(E1242_ASYNPORT)", 0, 3, 0x0230, 0x8, 7, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_BOR", "$(E1242_ASYNPORT)", 0, 3, 0x0230, 0x8, "FLOAT32_LE", 500, "ioLogik")
 
 # MOXA E1242 Burn out value write (float - two words): function 16 write multiple regs, address 0x230, 0x4 double words => 0x8 , data_type = FLOAT32_LE = 7, 
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_BOW", "$(E1242_ASYNPORT)", 0, 16, 0x0230, 0x8, 7, 1, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_BOW", "$(E1242_ASYNPORT)", 0, 16, 0x0230, 0x8, "FLOAT32_LE", 1, "ioLogik")
 
 ##################################
 
 # MOXA E1241 AOs: function 6 (Write Single Register), address 0x0400, 0x4 words , data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1241_ASYNPORT)_AO", "$(E1241_ASYNPORT)", 0, 6, 0x0400, 0x4, 0, 1, "ioLogik")
+#drvModbusAsynConfigure("$(E1241_ASYNPORT)_AO", "$(E1241_ASYNPORT)", 0, 6, 0x0400, 0x4, "UINT16", 1, "ioLogik")
 
 # MOXA E1241 AOs: function 3 (Read Holding Registers), address 0x0400, 0x4 words , data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1241_ASYNPORT)_AO_RBV", "$(E1241_ASYNPORT)", 0, 3, 0x0400, 0x4, 0, 100, "ioLogik")
+#drvModbusAsynConfigure("$(E1241_ASYNPORT)_AO_RBV", "$(E1241_ASYNPORT)", 0, 3, 0x0400, 0x4, "UINT16", 100, "ioLogik")
 
 ##################################
 
 # MOXA E1240 AIs: function 4, address 0x0, 0x8 words , data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1240_ASYNPORT)_AI", "$(E1240_ASYNPORT)", 0, 4, 0x000, 0x8, 0, 100, "ioLogik")
+#drvModbusAsynConfigure("$(E1240_ASYNPORT)_AI", "$(E1240_ASYNPORT)", 0, 4, 0x000, 0x8, "UINT16", 100, "ioLogik")
 
 # MOXA E1240 Current mode status: function 4, address 0x3c, 0x8 words , data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1240_ASYNPORT)_AI_St", "$(E1240_ASYNPORT)", 0, 4, 0x3c, 0x8, 0, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1240_ASYNPORT)_AI_St", "$(E1240_ASYNPORT)", 0, 4, 0x3c, 0x8, "UINT16", 500, "ioLogik")
 
 # MOXA E1240 Current mode settings read: function 3, address 0x18, 0x8 words , data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1240_ASYNPORT)_AIMR", "$(E1240_ASYNPORT)", 0, 3, 0x18, 0x8, 0, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1240_ASYNPORT)_AIMR", "$(E1240_ASYNPORT)", 0, 3, 0x18, 0x8, "UINT16", 500, "ioLogik")
 
 # MOXA E1240 Current mode settings write: function 6, address 0x18, 0x8 words , data_type = UINT16 = 0, 
-#drvModbusAsynConfigure("$(E1240_ASYNPORT)_AIMW", "$(E1240_ASYNPORT)", 0, 6, 0x18, 0x8, 0, 1, "ioLogik")
+#drvModbusAsynConfigure("$(E1240_ASYNPORT)_AIMW", "$(E1240_ASYNPORT)", 0, 6, 0x18, 0x8, "UINT16", 1, "ioLogik")
 
 # MOXA E1240 Burn out value read (float - two words): function 3, address 0x28, 0x8 double words => 0x10, data_type = FLOAT32_LE = 7, 
-#drvModbusAsynConfigure("$(E1240_ASYNPORT)_BOR", "$(E1240_ASYNPORT)", 0, 3, 0x0028, 0x10, 7, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1240_ASYNPORT)_BOR", "$(E1240_ASYNPORT)", 0, 3, 0x0028, 0x10, "FLOAT32_LE", 500, "ioLogik")
 
 # MOXA E1240 Burn out value write (float - two words): function 16 write multiple regs, address 0x28, 0x8 double words => 0x10 , data_type = FLOAT32_LE = 7, 
-#drvModbusAsynConfigure("$(E1240_ASYNPORT)_BOW", "$(E1240_ASYNPORT)", 0, 16, 0x0028, 0x10, 7, 1, "ioLogik")
+#drvModbusAsynConfigure("$(E1240_ASYNPORT)_BOW", "$(E1240_ASYNPORT)", 0, 16, 0x0028, 0x10, "FLOAT32_LE", 1, "ioLogik")
 
 ##################################
 
 # MOXA E1214 DIs (if NOT counter mode) : function 2 (Read Discrete Inputs), address 0x0, length 0x6, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DI",             "$(E1214_ASYNPORT)", 0, 2, 0x0,   0x6, 0, 100, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DI",             "$(E1214_ASYNPORT)", 0, 2, 0x0,   0x6, "UINT16", 100, "ioLogik")
 
 # MOXA E1214 DIs (if counter mode: start/stop counter) : function 5 (Write Single Coil), address 0x0100, length 0x6, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DICNT_S",        "$(E1214_ASYNPORT)", 0, 5, 0x0100,   0x6, 0, 1, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DICNT_S",        "$(E1214_ASYNPORT)", 0, 5, 0x0100,   0x6, "UINT16", 1, "ioLogik")
 
 # MOXA E1214 DIs (if counter mode: start/stop counter) : function 1 (Read Coils), address 0x0100, length 0x6, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DICNT_S_RBV",    "$(E1214_ASYNPORT)", 0, 1, 0x0100,   0x6, 0, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DICNT_S_RBV",    "$(E1214_ASYNPORT)", 0, 1, 0x0100,   0x6, "UINT16", 500, "ioLogik")
 
 # MOXA E1214 DIs (if counter mode: clear counter) : function 5 (Write Single Coil), address 0x0110, length 0x6, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
 # (RBV is always 0)
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DICNT_CLR",      "$(E1214_ASYNPORT)", 0, 5, 0x0110,   0x6, 0, 1, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DICNT_CLR",      "$(E1214_ASYNPORT)", 0, 5, 0x0110,   0x6, "UINT16", 1, "ioLogik")
 
 # MOXA E1214 DIs (if counter mode: counter value) : function 4 (Read Input Registers), address 0x0010, 0x6 double words => length 0xC, data_type = INT32_BE = 6, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DICNT",          "$(E1214_ASYNPORT)", 0, 4, 0x0010,   0xC, 6, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_DICNT",          "$(E1214_ASYNPORT)", 0, 4, 0x0010,   0xC, "INT32_BE", 500, "ioLogik")
 
 # MOXA E1214 Relay DOs (if NOT pulse mode) : function 5 (Write Single Coil), address 0x0, length 0x6, data_type = UINT16 = 0, # pollMsec = for write func (4,..) any non-zero val to read first
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_RelDO",          "$(E1214_ASYNPORT)", 0, 5, 0x0,   0x6, 0,   1, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_RelDO",          "$(E1214_ASYNPORT)", 0, 5, 0x0,   0x6, "UINT16",   1, "ioLogik")
 
 # MOXA E1214 Relay DOs (if NOT pulse mode) : function 1 (Read Coils), address 0x0, length 0x6, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_RelDO_RBV",      "$(E1214_ASYNPORT)", 0, 1, 0x0,   0x6, 0, 100, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_RelDO_RBV",      "$(E1214_ASYNPORT)", 0, 1, 0x0,   0x6, "UINT16", 100, "ioLogik")
 
 # MOXA E1214 Relay DOs (if pulse mode) : function 5 (Write Single Coil), address 0x10, length 0x6, data_type = UINT16 = 0, # pollMsec = for write func (4,..) any non-zero val to read first
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_RelDOPM",        "$(E1214_ASYNPORT)", 0, 5, 0x0010,   0x6, 0,   1, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_RelDOPM",        "$(E1214_ASYNPORT)", 0, 5, 0x0010,   0x6, "UINT16",   1, "ioLogik")
 
 # MOXA E1214 Relay DOs (if pulse mode) : function 1 (Read Coils), address 0x10, length 0x6, data_type = UINT16 = 0, # pollMsec = for write func (4,..) any non-zero val to read first
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_RelDOPM_RBV",    "$(E1214_ASYNPORT)", 0, 1, 0x0010,   0x6, 0,   100, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_RelDOPM_RBV",    "$(E1214_ASYNPORT)", 0, 1, 0x0010,   0x6, "UINT16",   100, "ioLogik")
 
 ##################################
 
 # MOXA E1242 Watchdog Clear: function 5 (Write Single Coil), address 0x1030, length 0x1, data_type = UINT16 = 0, # pollMsec = for write func (4,..) any non-zero val to read first
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_WD_CLEAR", "$(E1242_ASYNPORT)", 0, 5, 0x1030,   0x1, 0,   1, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_WD_CLEAR", "$(E1242_ASYNPORT)", 0, 5, 0x1030,   0x1, "UINT16",   1, "ioLogik")
 
 # MOXA E1242 Watchdog Status: function 1 (Read Coils), address 0x1030, length 0x1, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1242_ASYNPORT)_WD_STATUS", "$(E1242_ASYNPORT)", 0, 1, 0x1030,   0x1, 0, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1242_ASYNPORT)_WD_STATUS", "$(E1242_ASYNPORT)", 0, 1, 0x1030,   0x1, "UINT16", 500, "ioLogik")
 
 # MOXA E1241 Watchdog Clear: function 5 (Write Single Coil), address 0x1030, length 0x1, data_type = UINT16 = 0, # pollMsec = for write func (4,..) any non-zero val to read first
-#drvModbusAsynConfigure("$(E1241_ASYNPORT)_WD_CLEAR", "$(E1241_ASYNPORT)", 0, 5, 0x1030,   0x1, 0,   1, "ioLogik")
+#drvModbusAsynConfigure("$(E1241_ASYNPORT)_WD_CLEAR", "$(E1241_ASYNPORT)", 0, 5, 0x1030,   0x1, "UINT16",   1, "ioLogik")
 
 # MOXA E1241 Watchdog Status: function 1 (Read Coils), address 0x1030, length 0x1, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1241_ASYNPORT)_WD_STATUS", "$(E1241_ASYNPORT)", 0, 1, 0x1030,   0x1, 0, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1241_ASYNPORT)_WD_STATUS", "$(E1241_ASYNPORT)", 0, 1, 0x1030,   0x1, "UINT16", 500, "ioLogik")
 
 # MOXA E1240 does not have Watchdog at all!
 #
 
 # MOXA E1214 Watchdog Clear: function 5 (Write Single Coil), address 0x1030, length 0x1, data_type = UINT16 = 0, # pollMsec = for write func (4,..) any non-zero val to read first
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_WD_CLEAR", "$(E1214_ASYNPORT)", 0, 5, 0x1030,   0x1, 0,   1, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_WD_CLEAR", "$(E1214_ASYNPORT)", 0, 5, 0x1030,   0x1, "UINT16",   1, "ioLogik")
 
 # MOXA E1214 Watchdog Status: function 1 (Read Coils), address 0x1030, length 0x1, data_type = UINT16 = 0, # pollMsec = for read func, waits XXX msecs
-#drvModbusAsynConfigure("$(E1214_ASYNPORT)_WD_STATUS", "$(E1214_ASYNPORT)", 0, 1, 0x1030,   0x1, 0, 500, "ioLogik")
+#drvModbusAsynConfigure("$(E1214_ASYNPORT)_WD_STATUS", "$(E1214_ASYNPORT)", 0, 1, 0x1030,   0x1, "UINT16", 500, "ioLogik")
 
 
 ##################################
